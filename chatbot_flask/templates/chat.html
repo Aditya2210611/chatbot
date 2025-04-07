@@ -11,14 +11,13 @@
             const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
             recognition.lang = 'en-US';
 
-            // Update the placeholder text to indicate that the system is listening
             const queryInput = document.getElementById('query');
             queryInput.placeholder = "Listening...";
 
             recognition.onresult = function(event) {
                 const query = event.results[0][0].transcript;
                 queryInput.value = query;
-                queryInput.placeholder = "Enter your query here..."; // Reset placeholder
+                queryInput.placeholder = "Enter your query here..."; 
                 document.getElementById('chat-form').submit();
             };
 
